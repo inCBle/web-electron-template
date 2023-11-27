@@ -1,0 +1,25 @@
+{
+	"name": "web-electron-template",
+	"private": true,
+	"version": "0.0.1",
+	"main": "dist-electron/main.js",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview",
+		"electron:dev": "chcp 65001 && vite --config vite.config.electron.ts",
+		"electron:build": "vue-tsc && vite build --config vite.config.electron.ts && electron-builder"
+	},
+	"dependencies": {
+		"vue": "^3.2.47"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^4.1.0",
+		"electron": "^22.3.12",
+		"electron-builder": "^23.6.0",
+		"typescript": "^5.0.2",
+		"vite": "^4.3.9",
+		"vite-plugin-electron": "^0.11.2",
+		"vue-tsc": "^1.4.2"
+	}
+}
