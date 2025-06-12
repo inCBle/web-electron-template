@@ -9,6 +9,10 @@ function setTitle() {
 window.electron.getTitle().then((value) => {
   title.value = value;
 });
+
+window.electron.onMessage((value) => {
+  window.alert(value);
+});
 </script>
 
 <template>
