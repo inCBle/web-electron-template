@@ -1,4 +1,5 @@
-import { contextBridge, ipcRenderer } from "electron";
+import { contextBridge, ipcRenderer, MessageChannelMain } from "electron";
+import { LoginRequestParams } from "typings/login";
 
 let port: MessagePort | null = null;
 ipcRenderer.on("port", (e) => {
@@ -6,19 +7,7 @@ ipcRenderer.on("port", (e) => {
   port = e.ports[0];
 
   port.onmessage = (messageEvent) => {
-    const { data } = messageEvent;
-    switch (data.type) {
-      case "login-success":
-        const options = {
-          title: "登录成功",
-          body: `您好，${data.response.data.username}。恭喜登录成功，很高心见到你！`,
-        };
-        ipcRenderer.invoke("open-system-dialog", options);
-        break;
-      default:
-        console.warn("没有对应的事件处理");
-        break;
-    }
+    console.log(messageEvent, "login 收到了消息");
   };
 
   port.start();
@@ -40,7 +29,7 @@ contextBridge.exposeInMainWorld("electron", {
   postMessage: (message: any, options?: StructuredSerializeOptions) => {
     port?.postMessage(message, options);
   },
-  openLoginView: () => {
-    ipcRenderer.invoke("open-login-view");
+  login: (data: LoginRequestParams) => {
+    return ipcRenderer.invoke("login", data);
   },
 });

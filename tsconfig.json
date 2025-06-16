@@ -18,7 +18,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -27,6 +31,6 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "typings/**/*.d.ts"
-  ],
+, "src/initCompat.tst.tssrc/initCompat.tsompat.ts"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

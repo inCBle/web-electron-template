@@ -11,15 +11,16 @@
 		"electron:build": "vue-tsc && vite build --config vite.config.electron.ts && electron-builder"
 	},
 	"dependencies": {
-		"vue": "^3.2.47"
+		"vue": "^3.2.47",
+		"vue-router": "^4.5.1"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^4.1.0",
 		"electron": "^22.3.12",
 		"electron-builder": "^23.6.0",
-		"typescript": "^5.0.2",
+		"typescript": "^5.8.3",
 		"vite": "^4.3.9",
 		"vite-plugin-electron": "^0.29.0",
-		"vue-tsc": "^1.4.2"
+		"vue-tsc": "^2.2.10"
 	}
 }
